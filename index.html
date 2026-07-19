@@ -10,206 +10,191 @@
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230b1020'/%3E%3Ctext x='90' y='118' font-size='90' font-family='Arial' font-weight='bold' fill='%23ffe000' text-anchor='middle'%3EF5%3C/text%3E%3C/svg%3E">
 <title>Focus 5 — Coaching Checklist</title>
 <style>
-  :root{
-    --bg:#0b1020; --card:#151b2e; --card2:#1b2338; --line:#28324e;
-    --txt:#eef2ff; --muted:#9aa6c7;
-    --green:#39b34a; --yellow:#e0a400; --red:#e5372b;
-    --accent:#ffe000;
-  }
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  body{margin:0;background:var(--bg);color:var(--txt);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    padding:calc(env(safe-area-inset-top) + 14px) 14px calc(env(safe-area-inset-bottom) + 40px)}
-  header{max-width:640px;margin:0 auto 14px}
-  .title{display:flex;align-items:center;gap:10px}
-  .badge{background:var(--accent);color:#111;font-weight:800;border-radius:10px;
-    padding:4px 8px;font-size:15px}
-  h1{font-size:20px;margin:0;font-weight:800;letter-spacing:.2px}
-  .sub{color:var(--muted);font-size:13px;margin-top:3px}
-  .progwrap{max-width:640px;margin:0 auto 16px;background:var(--card);
-    border:1px solid var(--line);border-radius:16px;padding:14px}
-  .progtop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
-  .bignum{font-size:30px;font-weight:800}
-  .bignum span{font-size:15px;color:var(--muted);font-weight:600}
-  .done-lbl{font-size:13px;color:var(--muted)}
-  .bar{height:10px;background:var(--card2);border-radius:99px;overflow:hidden}
-  .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,#39b34a,#7bd88a);
-    border-radius:99px;transition:width .35s ease}
-  .alldone{color:var(--green);font-weight:700;font-size:14px;margin-top:10px;display:none}
-  main{max-width:640px;margin:0 auto}
-  .metric{margin:0 0 14px}
-  .mhead{display:flex;justify-content:space-between;align-items:center;padding:2px 4px 8px}
-  .mname{font-weight:700;font-size:15px}
-  .mgoal{color:var(--muted);font-size:12px}
-  .item{display:flex;align-items:center;gap:12px;background:var(--card);
-    border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:8px;
-    cursor:pointer;transition:opacity .2s,background .2s}
-  .item:active{background:var(--card2)}
-  .dot{width:12px;height:12px;border-radius:50%;flex:0 0 auto}
-  .dot.red{background:var(--red)} .dot.yellow{background:var(--yellow)} .dot.green{background:var(--green)}
-  .who{flex:1;min-width:0}
-  .nm{font-weight:700;font-size:16px}
-  .val{color:var(--muted);font-size:13px;margin-top:2px}
-  .val b{color:var(--txt)}
-  .chk{width:26px;height:26px;border-radius:8px;border:2px solid var(--line);
-    flex:0 0 auto;display:grid;place-items:center;background:var(--card2)}
-  .chk svg{width:16px;height:16px;opacity:0;transform:scale(.5);transition:.15s}
-  .item.done{opacity:.5}
-  .item.done .nm{text-decoration:line-through}
-  .item.done .chk{background:var(--green);border-color:var(--green)}
-  .item.done .chk svg{opacity:1;transform:scale(1)}
-  .controls{max-width:640px;margin:0 auto 14px;display:flex;gap:8px}
-  .btn{flex:1;background:var(--card);border:1px solid var(--line);color:var(--txt);
-    border-radius:12px;padding:11px;font-size:14px;font-weight:600}
-  .btn.on{background:var(--accent);color:#111;border-color:var(--accent)}
-  .met-section{max-width:640px;margin:22px auto 0}
-  .met-toggle{width:100%;background:transparent;border:0;color:var(--muted);
-    font-size:14px;font-weight:600;padding:8px;text-align:left}
-  .met-list{display:none}
-  .met-list.open{display:block}
-  .met-item{display:flex;align-items:center;gap:10px;padding:9px 4px;font-size:14px;
-    border-bottom:1px solid var(--line)}
-  .foot{max-width:640px;margin:26px auto 0;color:var(--muted);font-size:12px;text-align:center;line-height:1.5}
+:root{
+--bg:#0b1020; --card:#151b2e; --card2:#1b2338; --line:#28324e;
+--txt:#eef2ff; --muted:#9aa6c7;
+--green:#39b34a; --yellow:#e0a400; --red:#e5372b;
+--accent:#ffe000;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--txt);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+padding:calc(env(safe-area-inset-top) + 14px) 14px calc(env(safe-area-inset-bottom) + 40px)}
+header{max-width:640px;margin:0 auto 14px}
+.title{display:flex;align-items:center;gap:10px}
+.badge{background:var(--accent);color:#111;font-weight:800;border-radius:10px;
+padding:4px 8px;font-size:15px}
+h1{font-size:20px;margin:0;font-weight:800;letter-spacing:.2px}
+.sub{color:var(--muted);font-size:13px;margin-top:3px}
+.progwrap{max-width:640px;margin:0 auto 16px;background:var(--card);
+border:1px solid var(--line);border-radius:16px;padding:14px}
+.progtop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.bignum{font-size:30px;font-weight:800}
+.bignum span{font-size:15px;color:var(--muted);font-weight:600}
+.done-lbl{font-size:13px;color:var(--muted)}
+.bar{height:10px;background:var(--card2);border-radius:99px;overflow:hidden}
+.bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,#39b34a,#7bd88a);
+border-radius:99px;transition:width .35s ease}
+.alldone{color:var(--green);font-weight:700;font-size:14px;margin-top:10px;display:none}
+main{max-width:640px;margin:0 auto}
+.metric{margin:0 0 14px}
+.mhead{display:flex;justify-content:space-between;align-items:center;padding:2px 4px 8px}
+.mname{font-weight:700;font-size:15px}
+.mgoal{color:var(--muted);font-size:12px}
+.item{display:flex;align-items:center;gap:12px;background:var(--card);
+border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:8px;
+cursor:pointer;transition:opacity .2s,background .2s}
+.item:active{background:var(--card2)}
+.dot{width:12px;height:12px;border-radius:50%;flex:0 0 auto}
+.dot.red{background:var(--red)} .dot.yellow{background:var(--yellow)} .dot.green{background:var(--green)}
+.who{flex:1;min-width:0}
+.nm{font-weight:700;font-size:16px}
+.val{color:var(--muted);font-size:13px;margin-top:2px}
+.val b{color:var(--txt)}
+.chk{width:26px;height:26px;border-radius:8px;border:2px solid var(--line);
+flex:0 0 auto;display:grid;place-items:center;background:var(--card2)}
+.chk svg{width:16px;height:16px;opacity:0;transform:scale(.5);transition:.15s}
+.item.done{opacity:.5}
+.item.done .nm{text-decoration:line-through}
+.item.done .chk{background:var(--green);border-color:var(--green)}
+.item.done .chk svg{opacity:1;transform:scale(1)}
+.controls{max-width:640px;margin:0 auto 14px;display:flex;gap:8px}
+.btn{flex:1;background:var(--card);border:1px solid var(--line);color:var(--txt);
+border-radius:12px;padding:11px;font-size:14px;font-weight:600}
+.btn.on{background:var(--accent);color:#111;border-color:var(--accent)}
+.met-section{max-width:640px;margin:22px auto 0}
+.met-toggle{width:100%;background:transparent;border:0;color:var(--muted);
+font-size:14px;font-weight:600;padding:8px;text-align:left}
+.met-list{display:none}
+.met-list.open{display:block}
+.met-item{display:flex;align-items:center;gap:10px;padding:9px 4px;font-size:14px;
+border-bottom:1px solid var(--line)}
+.foot{max-width:640px;margin:26px auto 0;color:var(--muted);font-size:12px;text-align:center;line-height:1.5}
 </style>
 </head>
 <body>
 <header>
-  <div class="title"><span class="badge">F5</span><h1>Focus 5 — Coaching</h1></div>
-  <div class="sub" id="sub">Loading…</div>
+<div class="title"><span class="badge">F5</span><h1>Focus 5 — Coaching</h1></div>
+<div class="sub" id="sub">Loading…</div>
 </header>
-
 <div class="progwrap">
-  <div class="progtop">
-    <div class="bignum"><span id="remaining">0</span> left</div>
-    <div class="done-lbl"><span id="doneCount">0</span>/<span id="totalCount">0</span> done</div>
-  </div>
-  <div class="bar"><i id="barFill"></i></div>
-  <div class="alldone" id="allDone">✓ All coachings complete for this week!</div>
+<div class="progtop">
+<div class="bignum"><span id="remaining">0</span> left</div>
+<div class="done-lbl"><span id="doneCount">0</span>/<span id="totalCount">0</span> done</div>
 </div>
-
+<div class="bar"><i id="barFill"></i></div>
+<div class="alldone" id="allDone">✓ All coachings complete for this week!</div>
+</div>
 <div class="controls">
-  <button class="btn" id="fHide">Hide completed</button>
-  <button class="btn" id="reset">Reset week</button>
+<button class="btn" id="fHide">Hide completed</button>
+<button class="btn" id="reset">Reset week</button>
 </div>
-
 <main id="list"></main>
-
 <div class="met-section">
-  <button class="met-toggle" id="metToggle">▸ Meeting goal — no coaching needed (<span id="metCount">0</span>)</button>
-  <div class="met-list" id="metList"></div>
+<button class="met-toggle" id="metToggle">▸ Meeting goal — no coaching needed (<span id="metCount">0</span>)</button>
+<div class="met-list" id="metList"></div>
 </div>
-
 <p class="foot" id="foot"></p>
-
 <script>
 /* ===== WEEKLY DATA — regenerated each Sunday run ===== */
 const DATA = {
-  weekId: "2026-07-W1",
-  weekLabel: "July · Week 1",
-  store: "0885 Port Richey",
-  metrics: [
-    {name:"5-Star", goal:"4.75", people:[
-      {n:"Robert", v:"5.0", c:"green"}, {n:"Robin", v:"5.0", c:"green"} ]},
-    {name:"Revenue / hr", goal:"$610", people:[
-      {n:"Mariah", v:"$408", c:"red"} ]},
-    {name:"Transactions / hr", goal:"3.0", people:[
-      {n:"Jack", v:"1.3", c:"red"}, {n:"Liles", v:"1.8", c:"yellow"}, {n:"Rob", v:"1.3", c:"red"},
-      {n:"Robin", v:"1.1", c:"red"}, {n:"Emily", v:"1.4", c:"red"} ]},
-    {name:"PM Efficiency", goal:"≤ $3,000", people:[
-      {n:"Jack", v:"$8,934", c:"yellow"}, {n:"Mariah", v:"$2,579", c:"green"}, {n:"Liles", v:"$3,011", c:"yellow"},
-      {n:"Biatriz", v:"$3,149", c:"yellow"}, {n:"Emily", v:"$1,630", c:"green"} ]},
-    {name:"BP Efficiency", goal:"≤ $6,000", people:[
-      {n:"Liles", v:"$19,048", c:"red"}, {n:"Emily", v:"$0", c:"red"}, {n:"Rob", v:"$0", c:"red"},
-      {n:"Jack", v:"$10,635", c:"red"}, {n:"Lixandra", v:"$0", c:"red"} ]},
-    {name:"Warranty Attach", goal:"11%", people:[
-      {n:"Lixandra", v:"0%", c:"red"}, {n:"Mariah", v:"0%", c:"red"} ]},
-    {name:"PC Basket", goal:"$140", people:[
-      {n:"Jack", v:"$40", c:"red"}, {n:"Emily", v:"$76", c:"red"}, {n:"Lixandra", v:"$0", c:"red"} ]},
-    {name:"M365 Attach", goal:"25%", people:[
-      {n:"Robin", v:"14.3%", c:"red"}, {n:"Jack", v:"0%", c:"red"}, {n:"Rob", v:"100%", c:"green"},
-      {n:"Liles", v:"40%", c:"green"} ]},
-    {name:"HT Basket", goal:"$190", people:[
-      {n:"Yasser", v:"$162", c:"yellow"}, {n:"Emily", v:"$0", c:"red"}, {n:"Mariah", v:"$103", c:"red"} ]},
-    {name:"Audio Attach", goal:"20%", people:[
-      {n:"Rob", v:"20%", c:"green"}, {n:"Emily", v:"0%", c:"red"}, {n:"Mariah", v:"0%", c:"red"},
-      {n:"Robin", v:"100%", c:"green"} ]},
-  ]
+weekId: "2026-07-W2",
+weekLabel: "July · Week 2",
+store: "0885 Port Richey",
+metrics: [
+{name:"5-Star", goal:"4.75", people:[
+{n:"Robert", v:"5.0", c:"green"}, {n:"Robin", v:"5.0", c:"green"} ]},
+{name:"Revenue / hr", goal:"$610", people:[
+{n:"Mariah", v:"$458", c:"yellow"} ]},
+{name:"Transactions / hr", goal:"3.0", people:[
+{n:"Jack", v:"1.2", c:"red"}, {n:"Liles", v:"1.6", c:"red"}, {n:"Rob", v:"1.8", c:"yellow"},
+{n:"Robin", v:"2.0", c:"yellow"}, {n:"Emily", v:"1.6", c:"yellow"} ]},
+{name:"PM Efficiency", goal:"≤ $3,000", people:[
+{n:"Jack", v:"$6,752", c:"yellow"}, {n:"Mariah", v:"$8,305", c:"red"}, {n:"Liles", v:"$3,003", c:"yellow"},
+{n:"Biatriz", v:"$4,242", c:"red"}, {n:"Emily", v:"$2,672", c:"green"} ]},
+{name:"BP Efficiency", goal:"≤ $6,000", people:[
+{n:"Liles", v:"$6,775", c:"yellow"}, {n:"Emily", v:"$15,643", c:"red"}, {n:"Rob", v:"$25,004", c:"red"},
+{n:"Jack", v:"$18,714", c:"red"}, {n:"Lixandra", v:"$0", c:"red"} ]},
+{name:"Warranty Attach", goal:"11%", people:[
+{n:"Lixandra", v:"50%", c:"green"}, {n:"Mariah", v:"3.9%", c:"yellow"} ]},
+{name:"PC Basket", goal:"$140", people:[
+{n:"Jack", v:"$37", c:"red"}, {n:"Emily", v:"$74", c:"red"}, {n:"Lixandra", v:"$0", c:"red"} ]},
+{name:"M365 Attach", goal:"25%", people:[
+{n:"Robin", v:"27.3%", c:"green"}, {n:"Jack", v:"0%", c:"red"}, {n:"Rob", v:"40%", c:"green"},
+{n:"Liles", v:"22.2%", c:"red"} ]},
+{name:"HT Basket", goal:"$190", people:[
+{n:"Yasser", v:"$0", c:"red"}, {n:"Emily", v:"$266", c:"green"}, {n:"Mariah", v:"$89", c:"red"} ]},
+{name:"Audio Attach", goal:"20%", people:[
+{n:"Rob", v:"23.8%", c:"green"}, {n:"Emily", v:"25%", c:"green"}, {n:"Mariah", v:"0%", c:"red"},
+{n:"Robin", v:"100%", c:"green"} ]},
+]
 };
 /* ===== end data ===== */
-
 const KEY = "focus5_" + DATA.weekId;
 let state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
 let hideDone = false;
-
 const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>';
-
-document.getElementById("sub").textContent = DATA.weekLabel + "  ·  " + DATA.store;
-
+document.getElementById("sub").textContent = DATA.weekLabel + " · " + DATA.store;
 function build(){
-  const list = document.getElementById("list");
-  const metList = document.getElementById("metList");
-  list.innerHTML = ""; metList.innerHTML = "";
-  let total = 0, done = 0, met = 0;
-
-  DATA.metrics.forEach((m, mi) => {
-    const need = m.people.filter(p => p.c !== "green");
-    const good = m.people.filter(p => p.c === "green");
-    good.forEach(p => {
-      met++;
-      const row = document.createElement("div");
-      row.className = "met-item";
-      row.innerHTML = '<span class="dot green"></span><span style="flex:1">'+p.n+'</span>'+
-        '<span style="color:var(--muted)">'+p.v+'</span>';
-      metList.appendChild(row);
-    });
-    if(!need.length) return;
-
-    const wrap = document.createElement("section");
-    wrap.className = "metric";
-    wrap.innerHTML = '<div class="mhead"><div class="mname">'+m.name+
-      '</div><div class="mgoal">Goal '+m.goal+'</div></div>';
-
-    need.forEach((p, pi) => {
-      total++;
-      const id = mi+"_"+p.n+"_"+pi;
-      const isDone = !!state[id];
-      if(isDone) done++;
-      if(hideDone && isDone) return;
-      const item = document.createElement("div");
-      item.className = "item" + (isDone ? " done" : "");
-      item.innerHTML =
-        '<span class="dot '+p.c+'"></span>'+
-        '<div class="who"><div class="nm">'+p.n+'</div>'+
-        '<div class="val">'+m.name+' · <b>'+p.v+'</b> (goal '+m.goal+')</div></div>'+
-        '<div class="chk">'+CHECK+'</div>';
-      item.onclick = () => { state[id] = !state[id]; save(); };
-      wrap.appendChild(item);
-    });
-    list.appendChild(wrap);
-  });
-
-  document.getElementById("remaining").textContent = total - done;
-  document.getElementById("doneCount").textContent = done;
-  document.getElementById("totalCount").textContent = total;
-  document.getElementById("barFill").style.width = total ? (done/total*100)+"%" : "0%";
-  document.getElementById("allDone").style.display = (total && done===total) ? "block" : "none";
-  document.getElementById("metCount").textContent = met;
-  document.getElementById("foot").textContent =
-    "Saved on this device · " + DATA.weekLabel + ". Green = meeting goal, yellow = improved but below, red = below & not improved.";
+const list = document.getElementById("list");
+const metList = document.getElementById("metList");
+list.innerHTML = ""; metList.innerHTML = "";
+let total = 0, done = 0, met = 0;
+DATA.metrics.forEach((m, mi) => {
+const need = m.people.filter(p => p.c !== "green");
+const good = m.people.filter(p => p.c === "green");
+good.forEach(p => {
+met++;
+const row = document.createElement("div");
+row.className = "met-item";
+row.innerHTML = '<span class="dot green"></span><span style="flex:1">'+p.n+'</span>'+
+'<span style="color:var(--muted)">'+p.v+'</span>';
+metList.appendChild(row);
+});
+if(!need.length) return;
+const wrap = document.createElement("section");
+wrap.className = "metric";
+wrap.innerHTML = '<div class="mhead"><div class="mname">'+m.name+
+'</div><div class="mgoal">Goal '+m.goal+'</div></div>';
+need.forEach((p, pi) => {
+total++;
+const id = mi+"_"+p.n+"_"+pi;
+const isDone = !!state[id];
+if(isDone) done++;
+if(hideDone && isDone) return;
+const item = document.createElement("div");
+item.className = "item" + (isDone ? " done" : "");
+item.innerHTML =
+'<span class="dot '+p.c+'"></span>'+
+'<div class="who"><div class="nm">'+p.n+'</div>'+
+'<div class="val">'+m.name+' · <b>'+p.v+'</b> (goal '+m.goal+')</div></div>'+
+'<div class="chk">'+CHECK+'</div>';
+item.onclick = () => { state[id] = !state[id]; save(); };
+wrap.appendChild(item);
+});
+list.appendChild(wrap);
+});
+document.getElementById("remaining").textContent = total - done;
+document.getElementById("doneCount").textContent = done;
+document.getElementById("totalCount").textContent = total;
+document.getElementById("barFill").style.width = total ? (done/total*100)+"%" : "0%";
+document.getElementById("allDone").style.display = (total && done===total) ? "block" : "none";
+document.getElementById("metCount").textContent = met;
+document.getElementById("foot").textContent =
+"Saved on this device · " + DATA.weekLabel + ". Green = meeting goal, yellow = improved but below, red = below & not improved.";
 }
 function save(){ localStorage.setItem(KEY, JSON.stringify(state)); build(); }
-
 document.getElementById("fHide").onclick = function(){
-  hideDone = !hideDone; this.classList.toggle("on", hideDone);
-  this.textContent = hideDone ? "Show all" : "Hide completed"; build();
+hideDone = !hideDone; this.classList.toggle("on", hideDone);
+this.textContent = hideDone ? "Show all" : "Hide completed"; build();
 };
 document.getElementById("reset").onclick = function(){
-  if(confirm("Reset all checkmarks for "+DATA.weekLabel+"?")){ state = {}; save(); }
+if(confirm("Reset all checkmarks for "+DATA.weekLabel+"?")){ state = {}; save(); }
 };
 document.getElementById("metToggle").onclick = function(){
-  const l = document.getElementById("metList"); const open = l.classList.toggle("open");
-  this.textContent = (open ? "▾ " : "▸ ") + "Meeting goal — no coaching needed (" + document.getElementById("metCount").textContent + ")";
+const l = document.getElementById("metList"); const open = l.classList.toggle("open");
+this.textContent = (open ? "▾ " : "▸ ") + "Meeting goal — no coaching needed (" + document.getElementById("metCount").textContent + ")";
 };
 build();
 </script>
